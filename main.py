@@ -27,7 +27,6 @@ if __name__ == "__main__":
 
    Money:list = list(enumerate(AllCurrencies, 0));
 
-   # AvailableEntries = ["20 Dollar Bill", "10 Dollar Bill", "5 Dollar Bill", "1 Dollar Bill", "Quarter", "Nickel", "Penny"]; #REMOVED FOR SOMETHING MORE DYNAMIC.
    AvailableEntries = [i['currency'] for i in AllCurrencies] #More dynamic and flexible than ["20 Dollar Bill", "10 Dollar Bill", "5 Dollar Bill", "1 Dollar Bill", "Quarter", "Nickel", "Penny"]
 
    #First Question.
