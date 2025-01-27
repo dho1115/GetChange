@@ -12,7 +12,10 @@ IMPORTANT!!! GetChangeApp only converts UP. It does not convert down, so I canno
 from sys import path;
 from os import getenv;
 from dotenv import load_dotenv;
+from colorama import init;
+from termcolor import colored;
 
+init()
 load_dotenv();
 
 folderpath = getenv('folderroute') #Retrieve the path to my folder (otherwise, main.py CANNOT see my folder for some odd reason).
@@ -73,7 +76,9 @@ if __name__ == "__main__":
 
       SortedMoney = reduce(lambda accumulator, value: {**accumulator, value["currency"]: value["quantity"]}, [dict(currency=i['currency'], quantity=i['quantity']) for i in MoneyDict], {}); #Puts everything into a dictionary format. Optional. I think it looks better.
 
-      print(f"HERE IS YOUR CHANGE:\n{SortedMoney}");
+      print(f"For your {quantity} of {CurrencyEntry}, you will receive the following:");
+      for i in SortedMoney.items():
+         print(f"You will get {colored(i[1], 'yellow', attrs=['bold'])} {colored(i[0], 'light_green', attrs=['bold'])}")
 
    except (NameError, ValueError, TypeError) as err:
       print(f"\nERROR!!! Make sure your currency entry, {CurrencyEntry} is one of THESE VALUES: {AvailableEntries}. Currently, validation shows the following results as to whether {CurrencyEntry} is in {AvailableEntries}: {CurrencyEntry in AvailableEntries} \nAnother possibility is your quantity entered, {quantity} CANNOT be turned into an integer.\n- {err}.");
