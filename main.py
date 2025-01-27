@@ -75,14 +75,8 @@ if __name__ == "__main__":
 
       print(f"HERE IS YOUR CHANGE:\n{SortedMoney}");
 
-   except NameError as ne:
-      print(f"VALUE ERROR!!! One possibility for this is in your quantity entry.\nMake sure the quantity you have can be turned into an INTEGER. Can your entry, {quantity} be turned into an integer? Currently, the DATA TYPE for {quantity} is {type(quantity)}\n- {ne}.");
-
-   except TypeError as te:
-      print(f"TYPE ERROR!!! Unable to convert your quantity entry, {quantity} into a number!!! - {te}.");
-
-   except ValueError as ve:
-      print(f"\nVALUE ERROR!!! Make sure your currency entry, {CurrencyEntry} is one of THESE VALUES: {AvailableEntries}. Currently, validation shows the following results as to whether {CurrencyEntry} is in {AvailableEntries}: {CurrencyEntry in AvailableEntries} \nAnother possibility is your quantity entered, {quantity} CANNOT be turned into an integer.\n- {ve}.");
+   except (NameError, ValueError, TypeError) as err:
+      print(f"\nERROR!!! Make sure your currency entry, {CurrencyEntry} is one of THESE VALUES: {AvailableEntries}. Currently, validation shows the following results as to whether {CurrencyEntry} is in {AvailableEntries}: {CurrencyEntry in AvailableEntries} \nAnother possibility is your quantity entered, {quantity} CANNOT be turned into an integer.\n- {err}.");
 
    except Exception as exc:
       print(f"EXCEPTION!!! {exc} - {exc.args}.")
