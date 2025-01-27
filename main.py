@@ -31,11 +31,14 @@ if __name__ == "__main__":
    Money:list = list(enumerate(AllCurrencies, 0));
 
    AvailableEntries = ["20 Dollar Bill", "10 Dollar Bill", "5 Dollar Bill", "1 Dollar Bill", "Quarter", "Nickel", "Penny"];
+
+   #First Question.
    CurrencyEntry = input(f"Enter the currency you want to get change for: {AvailableEntries}: ");
 
    try:
       if CurrencyEntry not in AvailableEntries: raise ValueError(f"VALUE ERROR: {CurrencyEntry} is not in the list of availableEntries {AvailableEntries}!!!");
-
+   
+      #Second Question.
       quantity = input(f"How many {CurrencyEntry} do you have? ");
 
       if not isinstance(int(quantity), int): raise NameError();
