@@ -23,14 +23,14 @@ path.append(folderpath); #path will show the current paths my folder can view. B
 
 if __name__ == "__main__":
    from functools import reduce;
-   from folder.AvailableCurrencies import AllCurrencies;
+   from folder.AvailableCurrencies import CurrenciesToUse;
 
    def MoneyChanger(CurrentCurrent, NewCurrency, GetChangeAt):
       return dict(currency=CurrentCurrent, changeFor=NewCurrency, when=GetChangeAt, quantity=0);
 
-   Money:list = list(enumerate(AllCurrencies, 0));
+   Money:list = list(enumerate(CurrenciesToUse, 0));
 
-   AvailableEntries = [i['currency'] for i in AllCurrencies] #More dynamic and flexible than ["20 Dollar Bill", "10 Dollar Bill", "5 Dollar Bill", "1 Dollar Bill", "Quarter", "Nickel", "Penny"]
+   AvailableEntries = [i['currency'] for i in CurrenciesToUse] #More dynamic and flexible than ["20 Dollar Bill", "10 Dollar Bill", "5 Dollar Bill", "1 Dollar Bill", "Quarter", "Nickel", "Penny"]
 
    #First Question.
    CurrencyEntry = input(f"Enter the currency you want to get change for: {AvailableEntries}: ");
