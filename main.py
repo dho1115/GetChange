@@ -27,7 +27,8 @@ if __name__ == "__main__":
 
    Money:list = list(enumerate(AllCurrencies, 0));
 
-   AvailableEntries = ["20 Dollar Bill", "10 Dollar Bill", "5 Dollar Bill", "1 Dollar Bill", "Quarter", "Nickel", "Penny"];
+   # AvailableEntries = ["20 Dollar Bill", "10 Dollar Bill", "5 Dollar Bill", "1 Dollar Bill", "Quarter", "Nickel", "Penny"]; #REMOVED FOR SOMETHING MORE DYNAMIC.
+   AvailableEntries = [i['currency'] for i in AllCurrencies] #More dynamic and flexible than ["20 Dollar Bill", "10 Dollar Bill", "5 Dollar Bill", "1 Dollar Bill", "Quarter", "Nickel", "Penny"]
 
    #First Question.
    CurrencyEntry = input(f"Enter the currency you want to get change for: {AvailableEntries}: ");
@@ -76,7 +77,7 @@ if __name__ == "__main__":
       print(f"HERE IS YOUR CHANGE:\n{SortedMoney}");
 
    except NameError as ne:
-      print(f"VALUE ERROR!!! One possibility for this is in your quantity entry.\nMake sure the quantity you have can be turned into an INTEGER. Can your entry, {quantity} be turned into an integer? Currently, the DATA TYPE for {quantity} is {type(quantity).__name__}\n- {ne}.");
+      print(f"VALUE ERROR!!! One possibility for this is in your quantity entry.\nMake sure the quantity you have can be turned into an INTEGER. Can your entry, {quantity} be turned into an integer? Currently, the DATA TYPE for {quantity} is {type(quantity)}\n- {ne}.");
 
    except TypeError as te:
       print(f"TYPE ERROR!!! Unable to convert your quantity entry, {quantity} into a number!!! - {te}.");
