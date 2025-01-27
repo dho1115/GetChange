@@ -1,1 +1,1 @@
-MoneyChanger = lambda CurrentCurrent, NewCurrency, GetChangeAt: dict(currency=CurrentCurrent, changeFor=NewCurrency, when=GetChangeAt, quantity=0);
+MoneyChanger = lambda CurrentCurrency, NewCurrency, GetChangeAt: dict(currency=CurrentCurrency, changeFor=NewCurrency, when=GetChangeAt, quantity=0);
