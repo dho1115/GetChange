@@ -20,10 +20,7 @@ path.append(folderpath); #path will show the current paths my folder can view. B
 
 if __name__ == "__main__":
    from functools import reduce;
-   from folder import AvailableCurrencies;
    from folder.AvailableCurrencies import AllCurrencies;
-
-   print(AvailableCurrencies.__doc__)
 
    def MoneyChanger(CurrentCurrent, NewCurrency, GetChangeAt):
       return dict(currency=CurrentCurrent, changeFor=NewCurrency, when=GetChangeAt, quantity=0);
