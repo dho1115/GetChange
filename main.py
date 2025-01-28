@@ -31,7 +31,7 @@ if __name__ == "__main__":
    def MoneyChanger(CurrentCurrent, NewCurrency, GetChangeAt):
       return dict(currency=CurrentCurrent, changeFor=NewCurrency, when=GetChangeAt, quantity=0);
 
-   Money:list = list(enumerate(CurrenciesToUse, 0));
+   Money:list = list(enumerate(CurrenciesToUse, 0)); #[(0, {...data}), (1, {...data}), (2, {...data}), etc...]
 
    AvailableEntries = [i['currency'] for i in CurrenciesToUse] #More dynamic and flexible than ["20 Dollar Bill", "10 Dollar Bill", "5 Dollar Bill", "1 Dollar Bill", "Quarter", "Nickel", "Penny"]
 
