@@ -87,12 +87,6 @@ if __name__ == "__main__":
       print(f"\nERROR!!! Make sure your currency entry, {CurrencyEntry} is one of THESE VALUES: {AvailableEntries}. Currently, validation shows the following results as to whether {CurrencyEntry} is in {AvailableEntries}: {CurrencyEntry in AvailableEntries} \nAnother possibility is your quantity entered, {quantity} CANNOT be turned into an integer.\n- {err}.");
 
    except Exception as exc:
-      print(f"EXCEPTION!!! {exc} - {exc.args}.")
-
-
-
-
-         
-      
+      print(f"EXCEPTION!!! {exc} - {exc.args}.")   
 
 
