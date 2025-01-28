@@ -2,8 +2,9 @@
 GetChangeApp:
 
 Github repository: https://github.com/dho1115/GetChange
+YouTube Link: https://youtu.be/BPSBH8beOEI
 
-This app will take the number of change you have and convert it UP to the equivalent currency:
+This app will take the number for ONE TYPE OF CURRENCY (e.g.: dollar bill, quarter, nickel, etc... ) and convert that one currency UP to the equivalent currency:
 
 For Instance:
 If you have 4 quarters, GetChangeApp will convert it to 1 dollar.
@@ -35,21 +36,20 @@ if __name__ == "__main__":
    print()
    input("HIT ANY KEY TO CONTINUE.")
 
-   def MoneyChanger(CurrentCurrent, NewCurrency, GetChangeAt):
-      return dict(currency=CurrentCurrent, changeFor=NewCurrency, when=GetChangeAt, quantity=0);
-
    Money:list = list(enumerate(CurrenciesToUse, 0)); #[(0, {...data}), (1, {...data}), (2, {...data}), etc...]
 
    AvailableEntries = [i['currency'] for i in CurrenciesToUse] #More dynamic and flexible than ["20 Dollar Bill", "10 Dollar Bill", "5 Dollar Bill", "1 Dollar Bill", "Quarter", "Nickel", "Penny"]
 
    #First Question.
    CurrencyEntry = input(f"Enter the currency you want to get change for: {AvailableEntries}: ");
+   print("\n"*3)
 
    try:
       if CurrencyEntry not in AvailableEntries: raise ValueError(f"VALUE ERROR: {CurrencyEntry} is not in the list of availableEntries {AvailableEntries}!!!");
    
       #Second Question.
       quantity = input(f"How many {CurrencyEntry} do you have? ");
+      print("\n"*3)
 
       if not isinstance(int(quantity), int): raise NameError();
       else: quantity = int(quantity);
