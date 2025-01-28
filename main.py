@@ -17,8 +17,6 @@ from os import getenv;
 from dotenv import load_dotenv;
 from colorama import init;
 from termcolor import colored;
-from functools import reduce;
-from folder.AvailableCurrencies import CurrenciesToUse;
 from pyfiglet import figlet_format;
 
 init()
@@ -28,6 +26,15 @@ folderpath = getenv('folderroute') #Retrieve the path to my folder (otherwise, m
 path.append(folderpath); #path will show the current paths my folder can view. By appending folderpath, I am adding a new path for my current directory (main.py).
 
 if __name__ == "__main__":
+   from functools import reduce;
+   from folder.AvailableCurrencies import CurrenciesToUse;
+
+   f = figlet_format('CHANGE-UP APP!!!');
+   coloredFiglet = colored(f, 'light_green', attrs=['bold']);
+   print(coloredFiglet);
+   print()
+   input("HIT ANY KEY TO CONTINUE.")
+
    def MoneyChanger(CurrentCurrent, NewCurrency, GetChangeAt):
       return dict(currency=CurrentCurrent, changeFor=NewCurrency, when=GetChangeAt, quantity=0);
 
