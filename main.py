@@ -1,5 +1,8 @@
 '''
 GetChangeApp:
+
+Github repository: https://github.com/dho1115/GetChange
+
 This app will take the number of change you have and convert it UP to the equivalent currency:
 
 For Instance:
