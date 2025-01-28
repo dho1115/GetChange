@@ -31,7 +31,9 @@ if __name__ == "__main__":
    def MoneyChanger(CurrentCurrent, NewCurrency, GetChangeAt):
       return dict(currency=CurrentCurrent, changeFor=NewCurrency, when=GetChangeAt, quantity=0);
 
-   Money:list = list(enumerate(CurrenciesToUse, 0)); #[(0, {...data}), (1, {...data}), (2, {...data}), etc...]
+   # Money:list = list(enumerate(CurrenciesToUse, 0)); #[(0, {...data}), (1, {...data}), (2, {...data}), etc...]
+
+   Money:list = CurrenciesToUse; #[{...money data}, {...money data}, {...money data}, ...]
 
    AvailableEntries = [i['currency'] for i in CurrenciesToUse] #More dynamic and flexible than ["20 Dollar Bill", "10 Dollar Bill", "5 Dollar Bill", "1 Dollar Bill", "Quarter", "Nickel", "Penny"]
 
@@ -59,13 +61,23 @@ if __name__ == "__main__":
          list(filter(lambda x: x[1]['currency'] == CurrencyEntry, Money)) = [(index, {...currency_details, currency: CurrencyEntry})]
          Money[int][int] = {...currency_details}.
          '''
+         input();
 
-         Money[list(filter(lambda x: x[1]['currency'] == CurrencyEntry, Money))[0][0]][1]['quantity']+=1;
+         TargetCurrency = list(filter(lambda x: x['currency'] == CurrencyEntry, Money))[0];
+         print(TargetCurrency);
+         input();
+
+         TargetCurrencyIndex = Money[TargetCurrency]
+         print(TargetCurrencyIndex);
+         input();
+         
+         Money[TargetCurrencyIndex]['quantity']+=1;
+
          for object in Money:
-            if (object[1]['quantity'] == object[1]['when']) and (object[1]['when'] != None):
-               object[1]['quantity']-=object[1]['when'];
-               GetChangeFor = object[1]['changeFor'];
-               Money = list(map(lambda x: (x[0], {**x[1], 'quantity': x[1]['quantity'] + 1}) if x[1]['currency'] == GetChangeFor else x, Money));
+            if (object['quantity'] == object['when']) and (object['when'] != None):
+               object['quantity']-=object['when'];
+               GetChangeFor = object['changeFor'];
+               Money = list(map(lambda x: {**x, 'quantity': x['quantity'] + 1} if x['currency'] == GetChangeFor else x, Money));
       
       '''
       BELOW:
@@ -75,7 +87,7 @@ if __name__ == "__main__":
       Well, that is equivalent to 1 one dollar bill, zero five dollar bills and zero for any other currency.
       MoneyDict (function below) will NOT show those currency with zero quantities.
       '''
-      MoneyDict = list(filter(lambda x: x['quantity'] > 0, list(x[1] for x in Money))) # I want to return ONLY currencies with quantity GREATER than 0. Hence, the x['quantity'] > 0.
+      MoneyDict = list(filter(lambda x: x['quantity'] > 0, list(x for x in Money))) # I want to return ONLY currencies with quantity GREATER than 0. Hence, the x['quantity'] > 0.
 
       SortedMoney = reduce(lambda accumulator, value: {**accumulator, value["currency"]: value["quantity"]}, [dict(currency=i['currency'], quantity=i['quantity']) for i in MoneyDict], {}); #Puts everything into a dictionary format that will ***ONLY GIVE ME { currency: int > 0, quantity: int > 0 } ***. Optional. I think it looks better.
 
